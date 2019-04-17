@@ -1,12 +1,31 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import './App.css';
+import CampaignList from './CampaignList';
+import Home from './Home';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-            hey
-      </div>
+        <React.Fragment>
+            <Router>
+            <div>
+                <h1>Context & Hooks research</h1>
+                <nav>
+                    <ul>
+                        <li>
+                            <Link to="/">Home</Link>
+                        </li>
+                        <li>
+                            <Link to="/campaigns/">Campaigns</Link>
+                        </li>
+                    </ul>
+                </nav>
+                <Route path="/" exact component={Home} />
+                <Route path="/campaigns/" component={CampaignList} />
+            </div>
+            </Router>
+        </React.Fragment>
     );
   }
 }

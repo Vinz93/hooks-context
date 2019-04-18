@@ -1,11 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import './App.css';
 import CampaignList from './CampaignList';
 import Home from './Home';
+import { Store } from '../Store';
 
-class App extends Component {
-  render() {
+import { fetchDataAction } from "../actions/fetch-episodes";
+
+function  App()  {
+    const { state, dispatch } = React.useContext(Store);
+
+    React.useEffect(() => {
+        state.episodes.length === 0 && fetchDataAction(dispatch);
+    });
     return (
         <React.Fragment>
             <Router>
@@ -27,7 +34,6 @@ class App extends Component {
             </Router>
         </React.Fragment>
     );
-  }
 }
 
 export default App;

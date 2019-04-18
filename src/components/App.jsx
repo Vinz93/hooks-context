@@ -3,16 +3,8 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import './App.css';
 import CampaignList from './CampaignList';
 import Home from './Home';
-import { Store } from '../Store';
-
-import { fetchDataAction } from "../actions/fetch-episodes";
 
 function  App()  {
-    const { state, dispatch } = React.useContext(Store);
-
-    React.useEffect(() => {
-        state.episodes.length === 0 && fetchDataAction(dispatch);
-    });
     return (
         <React.Fragment>
             <Router>

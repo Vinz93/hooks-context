@@ -7,7 +7,7 @@ const Home = () => {
 
     React.useEffect(() => {
         state.episodes.length === 0 && fetchDataAction(dispatch);
-    });
+    }, [state.episodes, dispatch]);
 
     return (
         <div>

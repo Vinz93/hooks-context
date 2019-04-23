@@ -10,11 +10,11 @@ const Home = () => {
     }, [state.episodes, dispatch]);
 
     return (
-        <div>
+        <div className="episode-layout">
             {
                 state.episodes.map(episode => {
                     return (
-                        <div key={episode.id}>
+                        <div key={episode.id} className="episode-box">
                             <img src={episode.image.medium}
                                  alt={`Rick and Morty ${episode.name}`}
                             />
